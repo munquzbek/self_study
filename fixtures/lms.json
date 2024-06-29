@@ -1,0 +1,22 @@
+[
+  {
+    "model": "lms.course",
+    "pk": 1,
+    "fields": {
+      "title": "Course Python",
+      "description": "description for python course",
+      "owner": 1
+    }
+  },
+  {
+    "model": "lms.lesson",
+    "pk": 1,
+    "fields": {
+      "title": "Lesson #1 python",
+      "description": "description for python lesson",
+      "url": "http://127.0.0.1:8000/surveys/share/survey-1/",
+      "course": 1,
+      "owner": 1
+    }
+  }
+]
