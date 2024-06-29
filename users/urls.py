@@ -3,12 +3,12 @@ from django.urls import path
 from users.apps import UsersConfig
 from users.views import UserCreateAPIView, UserListAPIView, UserUpdateAPIView, UserDeleteAPIView
 
-app_name = UsersConfig.name
-
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+
+app_name = UsersConfig.name
 
 urlpatterns = [
     #  user CreateReadUpdateDelete(CRUD)

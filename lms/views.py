@@ -3,18 +3,23 @@ from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView,
 
 
 from lms.models import Course, Lesson
-from lms.serializers import CourseSerializer, LessonSerializer
+from lms.serializers import CourseSerializer, LessonSerializer, CourseLessonSerializer
 
 
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
-    serializer_class = CourseSerializer
 
     def perform_create(self, serializer):
         """auto adding to course its owner who create course"""
         course = serializer.save()
         course.owner = self.request.user
         course.save()
+
+    def get_serializer_class(self):
+        """if creating then CourseSerializer others(CRUD) CourseLessonSerializer"""
+        if self.action == 'post':
+            return CourseSerializer
+        return CourseLessonSerializer
 
 
 class LessonCreateAPIView(CreateAPIView):
