@@ -21,7 +21,7 @@ class Course(models.Model):
 class Lesson(models.Model):
     title = models.CharField(max_length=150, verbose_name='название')
     description = models.TextField(verbose_name='описание')
-    url = models.URLField(verbose_name='Ссылка на видео', **NULLABLE)
+    url = models.URLField(verbose_name='Ссылка на Тест', **NULLABLE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='курс', related_name='course')
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name='владелец',
                               help_text='укажите владельца курса')
