@@ -19,6 +19,7 @@ python3 manage.py dumpdata fixtures/data.json
 ```
 this code to load database with info
 
+### User
 ```url
 http://127.0.0.1:8000/users/signup/
 ```
@@ -36,11 +37,13 @@ http://127.0.0.1:8000/users/delete/1/
 ```
 delete an user with 1 id
 
+### Course
 ```url
 http://127.0.0.1:8000/lms/course/
 ```
 you can change the action to GET, PUT, POST, DELETE in postman to interact with course model
 
+### Lesson
 ```url
 http://127.0.0.1:8000/lms/lesson/create/
 ```
@@ -59,7 +62,7 @@ http://127.0.0.1:8000/lms/lesson/delete/<int:pk>/
 
 CRUD system for Lesson model
 
-## manage survey 
+## Survey 
 
 ```url
 https://pypi.org/project/django-form-surveys/#features
