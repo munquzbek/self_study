@@ -29,9 +29,7 @@ class CourseViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         """setting permission for moders to update and retrieve only, moders cant create or delete"""
-        if self.action == "create":
-            self.permission_classes = (AllowAny,)
-        elif self.action in ["update", "retrieve", "partial_update"]:
+        if self.action in ["update", "retrieve", "partial_update"]:
             self.permission_classes = (IsOwner,)
         elif self.action == "destroy":
             self.permission_classes = (IsOwner,)
