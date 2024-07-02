@@ -8,12 +8,13 @@ from users.permissions import IsOwner
 
 
 class CourseViewSet(viewsets.ModelViewSet):
-    queryset = Course.objects.all()
 
     def get_queryset(self):
         """only owners courses list will appear"""
-        user = self.request.user
-        return Course.objects.filter(owner=user)
+        if self.action in ["retrieve", "list"]:
+            return Course.objects.filter(is_public=True)
+        else:
+            return Course.objects.filter(is_public=False)
 
     def perform_create(self, serializer):
         """auto adding to course its owner who create course"""
